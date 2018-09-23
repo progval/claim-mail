@@ -1,6 +1,11 @@
 [package]
-name = "claim-mail"
+name = "claim_mail"
 version = "0.1.0"
 authors = ["Valentin Lorentz <progval+git@progval.net>"]
 
 [dependencies]
+toml = "0.4.2"
+imap = "0.8.1"
+native-tls = "0.1.5"
+serde_derive = "1.0"
+serde = "1.0"
