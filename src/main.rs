@@ -7,6 +7,7 @@ use std::fs::File;
 use std::io::prelude::*;
 
 use claim_mail::config::{Config, example_config};
+use claim_mail::net::Connection;
 
 fn main() {
     let mut args = args_os();
@@ -30,5 +31,8 @@ fn main() {
     let config: Config = toml::from_str(&config_string)
         .unwrap();
     println!("{:?}", config);
+    for (name, server) in config.imap_servers.iter() {
+        let conn = Connection::new(&server.domain, server.port, &server.username, &server.password);
+    }
 
 }
